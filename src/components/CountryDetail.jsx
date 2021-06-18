@@ -1,15 +1,18 @@
 import React from 'react'
 
 const CountryDetail = ({country}) => {
-
+    
 
 
     
 
     return (
-        <div>
-
-            <h3>{country.name}</h3>
+        <div className="country-detail">
+            
+            <p>Country: {country.name}</p>
+            <p>Total Cases: {country.total_cases}</p>
+            <p>Deaths: {country.deaths}</p>
+            <p>Recovered: {country.recovered}</p>
             
         </div>
     )

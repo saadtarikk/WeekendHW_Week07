@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import CountryList from '../components/CountryList'
 import CountryDetail from '../components/CountryDetail'
+import CountryTracker from '../components/CountryTracker'
 
 
 const CovidUpdateContainer = () => {

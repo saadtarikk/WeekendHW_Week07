@@ -2,7 +2,7 @@ import React from 'react'
 
 export const CountryItem = ({country, index}) => {
     return (
-        <option value={index} key={index} >{country}</option>
+        <option value={country} key={index} >{country}</option>
     )
 }
 
