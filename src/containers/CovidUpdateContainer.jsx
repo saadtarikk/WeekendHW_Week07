@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import CountryList from '../components/CountryList'
 import CountryDetail from '../components/CountryDetail'
 import CountryTracker from '../components/CountryTracker'
+import SearchCountry from '../components/SearchCountry'
 
 
 const CovidUpdateContainer = () => {
@@ -9,7 +10,8 @@ const CovidUpdateContainer = () => {
 
 
     const [countries, setCountries] = useState([])
-    const [selectedCountry, setSelectedCountry] = useState([])
+    const [selectedCountry, setSelectedCountry] = useState(null)
+    const [countriesTracker, setCountriesTracker] = useState([])
 
     useEffect(() => {
         getCovidUpdates()
@@ -25,13 +27,22 @@ const CovidUpdateContainer = () => {
         setSelectedCountry(country)
     }
 
+    const handleCountryTracker = (country) => {
+        if(!countriesTracker.includes(country)){
+            const newCountry = [...countriesTracker, country]
 
+            setCountriesTracker(newCountry)
+        }
+    }
+
+    console.log(selectedCountry)
 
     return (
         <div className="covid-container">
-            <h2>Covid Updates Container</h2>
-            {CountryList ? <CountryList countries={countries} onCountrySelect={onCountrySelect}/> : null}
-            {CountryDetail ? <CountryDetail country={selectedCountry}/> : null}
+            {/* <h2>Covid Updates Container</h2> */}
+            {countries ? <CountryList countries={countries} onCountrySelect={onCountrySelect}/> : null}
+            {selectedCountry ? <CountryDetail country={selectedCountry} saveCountry={handleCountryTracker}/> : null}
+            <CountryTracker className="country-tracker" countries={countriesTracker}/>
           
         </div>
     )

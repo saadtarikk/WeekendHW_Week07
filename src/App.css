@@ -1,7 +1,39 @@
 .App {
-  text-align: center;
-  display: grid;
+  
+    display: grid;
+    
+  
 }
 
+body {
+  background-color: black;
+  color:whitesmoke;
+  position: relative;
+	margin: auto;
+}
 
+ul {
+  list-style: none;
+}
 
+.country-tracker {
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 45px;
+	display: flex;
+	flex-wrap: wrap;
+	}
+  
+  .button:hover {
+	background-color: #2EE59D;
+	box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+	color: #fff;
+	transform: translateY(-7px);
+  }
+
+  .wrap {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
