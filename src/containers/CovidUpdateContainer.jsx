@@ -9,9 +9,10 @@ const CovidUpdateContainer = () => {
 
 
 
-    const [countries, setCountries] = useState([])
+    const [countries, setCountries] = useState(null)
     const [selectedCountry, setSelectedCountry] = useState(null)
     const [countriesTracker, setCountriesTracker] = useState([])
+    const [search, setSearch] = useState(null)
 
     useEffect(() => {
         getCovidUpdates()
@@ -22,6 +23,9 @@ const CovidUpdateContainer = () => {
         .then(res => res.json())
         .then(countries => setCountries(countries["data"]["regions"]))
     }
+    
+
+
 
     const onCountrySelect = (country) => {
         setSelectedCountry(country)
@@ -43,6 +47,7 @@ const CovidUpdateContainer = () => {
             {countries ? <CountryList countries={countries} onCountrySelect={onCountrySelect}/> : null}
             {selectedCountry ? <CountryDetail country={selectedCountry} saveCountry={handleCountryTracker}/> : null}
             <CountryTracker className="country-tracker" countries={countriesTracker}/>
+            {countries ? <SearchCountry className="search-country" countries={countries} /> : null }
           
         </div>
     )
